@@ -24,10 +24,13 @@ class AuthController extends Controller
         $request->session()->regenerate();
         return redirect()->intended('/home');
     }
-    public function logout(){
+    public function logout(Request $request){
         $user = Auth::check();
         if($user){
             Auth::logout();
+            $request->session()->invalidate();
+            $request->session()->regenerate();
+            return redirect()->intended('/');
         };
     }
 }

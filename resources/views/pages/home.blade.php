@@ -9,10 +9,11 @@
 <body>
     <h1>Welkam bebi</h1>
     <p>{{ Auth::user() }}</p>
-    <form action={{ route('auth.logout') }} >
+    <form method="POST" action={{ route('auth.logout') }} >
         <button type="submit">
             Logout
         </button>
-        </form>
+        @csrf
+    </form>
 </body>
 </html>
