@@ -12,6 +12,6 @@ class Menu extends Model
     public $timestamps = false;
 
     public function keranjang(){
-        $this->hasMany(Keranjang::class);
+        $this->hasMany(Detail::class);
     }
 }

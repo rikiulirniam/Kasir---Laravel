@@ -11,7 +11,7 @@ class DataPembelian extends Model
     private $guarded = ['id'];
     public $timestamps = false;
 
-    public function keranjang(){
-        $this->hasMany(Keranjang::class);
+    public function detail(){
+        $this->hasMany(Detail::class);
     }
 }
