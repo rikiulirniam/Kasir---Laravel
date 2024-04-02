@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Keranjang;
 use App\Http\Requests\StoreKeranjangRequest;
 use App\Http\Requests\UpdateKeranjangRequest;
 use App\Models\Detail;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
-class KeranjangController extends Controller
+class DetailController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -28,15 +29,19 @@ class KeranjangController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreKeranjangRequest $request)
+    public function store(Request $request)
     {
-        //
+        $data = Session::get('data_pembelian');
+
+        return redirect()->route()('pages.transaksi', [
+            'detail' => $data
+        ]);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Keranjang $keranjang)
+    public function show(Detail $Detail)
     {
         //
     }
@@ -44,7 +49,7 @@ class KeranjangController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Keranjang $keranjang)
+    public function edit(Detail $Detail)
     {
         //
     }
@@ -52,7 +57,7 @@ class KeranjangController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateKeranjangRequest $request, Keranjang $keranjang)
+    public function update(Request $request, Detail $Detail)
     {
         //
     }
@@ -60,7 +65,7 @@ class KeranjangController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Keranjang $keranjang)
+    public function destroy(Detail $keranjang)
     {
         //
     }

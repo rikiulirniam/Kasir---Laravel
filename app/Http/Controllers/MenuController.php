@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Menu;
-use App\Http\Requests\StoreMenuRequest;
 use App\Http\Requests\UpdateMenuRequest;
+use App\Models\DataPembelian;
+use App\Models\Detail;
+use Illuminate\Http\Request;
 
 class MenuController extends Controller
 {
@@ -27,9 +29,9 @@ class MenuController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreMenuRequest $request)
+    public function store(Request $request)
     {
-        //
+        
     }
 
     /**

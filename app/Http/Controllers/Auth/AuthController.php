@@ -15,18 +15,17 @@ class AuthController extends Controller
             'password' => 'required|min:5|string',
         ]);
         if($validator->fails()){
-            return redirect()->back()->withErrors(['message' => $validator->errors()]);
+            return redirect()->back();
         }
         if(!Auth::attempt($request->only('username', 'password'))){
             return redirect()->back()->withErrors(['message' => 'Username or Password Incorrect']);
         }
 
         $request->session()->regenerate();
-        return redirect()->intended('/home');
+        return redirect()->intended('/kasir');
     }
     public function logout(Request $request){
-        $user = Auth::check();
-        if($user){
+        if(Auth::check()){
             Auth::logout();
             $request->session()->invalidate();
             $request->session()->regenerate();

@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('data_pembelians', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('keranjang_id');
             $table->string('nama_pembeli');
-            $table->integer('total');
+            $table->integer('total')->nullable();
             $table->dateTime('waktu_pembelian');
+            $table->timestamps();
         });
     }
 

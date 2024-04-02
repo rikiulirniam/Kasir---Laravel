@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Detail extends Model
 {
     use HasFactory;
-    private $guarded = ['id'];
+    protected $guarded = ['id'];
     public $timestamps = false;
 
     public function menu(){

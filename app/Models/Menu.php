@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Menu extends Model
 {
     use HasFactory;
-    private $guarded = ['id'];
+    protected $guarded = ['id'];
     public $timestamps = false;
 
     public function keranjang(){

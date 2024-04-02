@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('details', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('makanan_id');
+            $table->foreignId('menu_id');
             $table->integer('jumlah');
+            $table->integer('total_harga');
         });
     }
 

@@ -1,6 +1,10 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\DataPembelianController;
+use App\Http\Controllers\DetailController;
+use App\Models\DataPembelian;
+use App\Models\Detail;
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\CssSelector\Node\FunctionNode;
 
@@ -20,7 +24,11 @@ Route::prefix('auth')->group(function(){
 });
 
 Route::middleware('auth:web')->group(function(){
-    Route::get('/home', 
+    Route::post('/add-menu', [DetailController::class, 'store'])->name('add-menu');
+
+    Route::post('/new-transaksi', [DataPembelianController::class, 'store'])->name('new.transaksi');
+    Route::get('/kasir/transaksi', [DataPembelianController::class, 'index'])->name('kasir.transaksi');
+    Route::get('/kasir',
         function(){
             return view('pages/home');
         }

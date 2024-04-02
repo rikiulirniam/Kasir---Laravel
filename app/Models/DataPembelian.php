@@ -8,8 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class DataPembelian extends Model
 {
     use HasFactory;
-    private $guarded = ['id'];
-    public $timestamps = false;
+    protected $guarded = ['id'];
 
     public function detail(){
         $this->hasMany(Detail::class);
